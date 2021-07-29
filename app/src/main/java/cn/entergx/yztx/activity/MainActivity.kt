@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        button.setOnClickListener { UserModel.getCode(editTextPhone.text.toString().toLong(),object :Callback<SimpleMsg>{
+        bt_login.setOnClickListener { UserModel.getCode(editTextPhone.text.toString().toLong(),object :Callback<SimpleMsg>{
             override fun onFailure(call: Call<SimpleMsg>, t: Throwable) {
                 println("1111111"+t.message)
                 Toast.makeText(this@MainActivity,t.message,Toast.LENGTH_SHORT).show()
