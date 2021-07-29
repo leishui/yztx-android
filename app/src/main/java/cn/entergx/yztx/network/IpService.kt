@@ -14,9 +14,8 @@ interface IpService {
     //用户注册
     @POST("user/sign_in")
     fun signIn(
-        @Query("account") account: String,
-        @Query("password") password: String,
         @Query("phone") phone: Long,
+        @Query("password") password: String,
         @Query("code") code: Int
     ): Call<SimpleMsg>
 
