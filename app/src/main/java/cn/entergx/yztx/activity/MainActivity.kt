@@ -1,8 +1,9 @@
-package cn.entergx.yztx
+package cn.entergx.yztx.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import cn.entergx.yztx.R
 import cn.entergx.yztx.model.UserModel
 import cn.entergx.yztx.msg.SimpleMsg
 import kotlinx.android.synthetic.main.activity_main.*
