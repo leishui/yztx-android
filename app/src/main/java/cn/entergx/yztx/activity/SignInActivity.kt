@@ -7,12 +7,14 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
 import android.widget.*
+import androidx.core.app.ActivityCompat
 import cn.entergx.yztx.CodeCountDownTimer
 import cn.entergx.yztx.R
 import cn.entergx.yztx.constant.StatusType
 import cn.entergx.yztx.msg.SimpleMsg
 import cn.entergx.yztx.network.Repo
 import cn.entergx.yztx.utils.MyCallback
+import cn.entergx.yztx.utils.SPUtils
 import cn.entergx.yztx.utils.Utils
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import retrofit2.Call
@@ -95,8 +97,16 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
                                             "注册成功：" + response.body()?.msg.toString()
                                         )
                                         alertDialog.dismiss()
-                                        startActivity(Intent(this@SignInActivity,MainActivity::class.java))
-                                        finish()
+                                        SPUtils.saveIsLogin(this@SignInActivity,true)
+                                        startActivity(
+                                            Intent(
+                                                this@SignInActivity,
+                                                MainActivity::class.java
+                                            ).apply {
+                                                flags =
+                                                    Intent.FLAG_ACTIVITY_CLEAR_TASK and Intent.FLAG_ACTIVITY_NEW_TASK
+                                            })
+                                        ActivityCompat.finishAffinity(this@SignInActivity)
                                     } else {
                                         Utils.toast(
                                             this@SignInActivity,
@@ -134,13 +144,15 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
                                     this@SignInActivity,
                                     "获取失败：" + response.body()?.msg.toString()
                                 )
+                                countDownTimer.cancel()
+                                countDownTimer.onFinish()
                             }
-                            countDownTimer.onFinish()
                         }
 
                         override fun onFailure(call: Call<SimpleMsg>, t: Throwable) {
                             super.onFailure(call, t)
                             Utils.toast(this@SignInActivity, "获取失败：网络请求错误")
+                            countDownTimer.cancel()
                             countDownTimer.onFinish()
                         }
                     })
