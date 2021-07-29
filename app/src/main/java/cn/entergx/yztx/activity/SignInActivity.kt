@@ -112,6 +112,7 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
                                             this@SignInActivity,
                                             "注册失败：" + response.body()?.msg.toString()
                                         )
+                                        alertDialog.dismiss()
                                     }
                                 }
                             })
