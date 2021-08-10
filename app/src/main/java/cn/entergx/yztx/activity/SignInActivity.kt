@@ -4,13 +4,14 @@ import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.view.View
 import android.widget.*
 import androidx.core.app.ActivityCompat
 import cn.entergx.yztx.CodeCountDownTimer
 import cn.entergx.yztx.R
+import cn.entergx.yztx.bean.bean.User
 import cn.entergx.yztx.constant.StatusType
+import cn.entergx.yztx.msg.Msg
 import cn.entergx.yztx.msg.SimpleMsg
 import cn.entergx.yztx.network.Repo
 import cn.entergx.yztx.utils.MyCallback
@@ -86,10 +87,12 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
                             etPhone.text.toString().toLong(),
                             etPassword.text.toString(),
                             etVerification.text.toString().toInt(),
-                            object : MyCallback<SimpleMsg> {
+                            SPUtils.getInitType(),
+                            SPUtils.getDate(),
+                            object : MyCallback<Msg<User>> {
                                 override fun onResponse(
-                                    call: Call<SimpleMsg>,
-                                    response: Response<SimpleMsg>
+                                    call: Call<Msg<User>>,
+                                    response: Response<Msg<User>>
                                 ) {
                                     if (response.body()?.status == StatusType.SUCCESSFUL) {
                                         Utils.toast(
@@ -97,7 +100,8 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
                                             "注册成功：" + response.body()?.msg.toString()
                                         )
                                         alertDialog.dismiss()
-                                        SPUtils.saveIsLogin(this@SignInActivity,true)
+                                        SPUtils.saveIsLogin(true)
+                                        SPUtils.saveUser(response.body()!!.content)
                                         startActivity(
                                             Intent(
                                                 this@SignInActivity,

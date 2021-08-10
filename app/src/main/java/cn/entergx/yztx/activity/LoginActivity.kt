@@ -10,7 +10,9 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import cn.entergx.yztx.R
+import cn.entergx.yztx.bean.bean.User
 import cn.entergx.yztx.constant.StatusType
+import cn.entergx.yztx.msg.Msg
 import cn.entergx.yztx.msg.SimpleMsg
 import cn.entergx.yztx.network.Repo
 import cn.entergx.yztx.utils.MyCallback
@@ -49,15 +51,22 @@ class LoginActivity : AppCompatActivity() {
                 else -> {
                     alertDialog.show()
                     Repo.loginPhone(etPhone.text.toString().toLong(),
-                        etPassword.text.toString(), object : MyCallback<SimpleMsg> {
+                        etPassword.text.toString(), object : MyCallback<Msg<User>> {
+                            override fun onFailure(call: Call<Msg<User>>, t: Throwable) {
+                                super.onFailure(call, t)
+                                Utils.toast(this@LoginActivity,"登录失败")
+                                alertDialog.dismiss()
+                            }
+
                             override fun onResponse(
-                                call: Call<SimpleMsg>,
-                                response: Response<SimpleMsg>
+                                call: Call<Msg<User>>,
+                                response: Response<Msg<User>>
                             ) {
                                 Log.d("TAG", "onResponse: "+response.body()?.msg.toString())
                                 if (response.body()?.status == StatusType.SUCCESSFUL) {
                                     Utils.toast(this@LoginActivity,"登录成功")
-                                    SPUtils.saveIsLogin(this@LoginActivity,true)
+                                    SPUtils.saveIsLogin(true)
+                                    SPUtils.saveUser(response.body()!!.content)
                                     startActivity(Intent(this@LoginActivity,MainActivity::class.java))
                                     finish()
                                 }else{

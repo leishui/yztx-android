@@ -2,15 +2,8 @@ package cn.entergx.yztx.msg;
 
 public class SimpleMsg {
     private int status;
-    private Object msg;
-
-    public SimpleMsg() {
-    }
-
-    public SimpleMsg(int status, Object msg) {
-        this.status = status;
-        this.msg = msg;
-    }
+    private String msg;
+    private String content;
 
     public int getStatus() {
         return status;
@@ -20,11 +13,19 @@ public class SimpleMsg {
         this.status = status;
     }
 
-    public Object getMsg() {
+    public String getMsg() {
         return msg;
     }
 
-    public void setMsg(Object msg) {
+    public void setMsg(String msg) {
         this.msg = msg;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

@@ -2,10 +2,8 @@ package cn.entergx.yztx.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import cn.entergx.yztx.R
 import cn.entergx.yztx.constant.MainConstValue
@@ -13,17 +11,10 @@ import cn.entergx.yztx.fragment.CommunityFragment
 import cn.entergx.yztx.fragment.LessonFragment
 import cn.entergx.yztx.fragment.MainFragment
 import cn.entergx.yztx.fragment.MineFragment
-import cn.entergx.yztx.model.UserModel
-import cn.entergx.yztx.msg.SimpleMsg
-import cn.entergx.yztx.network.Repo
-import cn.entergx.yztx.utils.MyCallback
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
-class MainActivity : AppCompatActivity(),MainConstValue{
+class MainActivity : AppCompatActivity(), MainConstValue {
     private lateinit var viewPager: ViewPager
     private lateinit var tabLayout: TabLayout
 
@@ -77,7 +68,8 @@ class MainActivity : AppCompatActivity(),MainConstValue{
                 position: Int,
                 positionOffset: Float,
                 positionOffsetPixels: Int
-            ) {}
+            ) {
+            }
 
             override fun onPageSelected(position: Int) {
                 //改变TabLayout图标

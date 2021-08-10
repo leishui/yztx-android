@@ -1,15 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.MainFragment">
-
-    <!-- TODO: Update blank fragment layout -->
+    android:background="@color/white"
+    android:padding="10dp">
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Mine"
-        android:textSize="100sp" />
+        android:id="@+id/tv_person"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="个人"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/pink"
+        android:textSize="40sp" />
 
-</FrameLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tv_person">
+
+
+
+        <RelativeLayout
+            android:id="@+id/rl_mine_1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+
+            <com.rishabhharit.roundedimageview.RoundedImageView
+                android:id="@+id/ri_mine_avatar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:scaleType="centerCrop"
+                app:cornerRadius="30dp"
+                app:roundedCorners="all"
+                app:srcCompat="@drawable/girl" />
+
+            <TextView
+                android:id="@+id/tv_mine_change_information"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20dp"
+                android:text="修改信息"
+                android:textColor="@color/pink" />
+
+            <TextView
+                android:id="@+id/tv_mine_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/ri_mine_avatar"
+                android:gravity="center_vertical"
+                android:text="用户名" />
+
+            <TextView
+                android:id="@+id/tv_mine_des"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/ri_mine_avatar"
+                android:gravity="center_vertical"
+                android:text="描述" />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tv_mine_status"
+            android:text="xxxxx"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_mine_1"
+            android:background="@drawable/bg_bt_normal"/>
+        <LinearLayout
+            android:id="@+id/ll_mine_1"
+            android:layout_below="@+id/tv_mine_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_mine_follower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="粉丝" />
+            <TextView
+                android:id="@+id/tv_mine_coin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="积分余额" />
+            <TextView
+                android:id="@+id/tv_mine_subscribe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="关注" />
+        </LinearLayout>
+        <Button
+            android:layout_below="@+id/tv_mine_status"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/bt_mine_sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_bt_normal"
+            android:text="签到"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:id="@+id/ll_mine_2"
+            android:layout_below="@+id/ll_mine_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/iv_mine_footprint"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/zuji" />
+
+            <ImageView
+                android:id="@+id/iv_mine_collect"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/shoucang" />
+
+            <ImageView
+                android:id="@+id/iv_mine_wallet"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/qianbao" />
+
+            <ImageView
+                android:id="@+id/iv_mine_spend"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/liwu" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_mine_3"
+            android:layout_below="@+id/ll_mine_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_footprint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="我的足迹" />
+
+            <TextView
+                android:id="@+id/tv_collect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="我的收藏" />
+
+            <TextView
+                android:id="@+id/tv_wallet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="钱包管理" />
+            <TextView
+                android:id="@+id/tv_spend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="积分充值" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_mine_4"
+            android:orientation="vertical"
+            android:layout_below="@+id/ll_mine_3"
+            android:layout_width="match_parent"
+            android:padding="15dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_production"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的作品" />
+
+            <TextView
+                android:id="@+id/tv_drafts"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="草稿箱" />
+
+            <TextView
+                android:id="@+id/tv_blacklist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="黑名单" />
+
+            <TextView
+                android:id="@+id/tv_feedback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="我要反馈" />
+        </LinearLayout>
+    </RelativeLayout>
+    <Button
+        android:id="@+id/bt_mine_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/bg_bt_normal"
+        android:text="注销登录"
+        android:textColor="@color/white" />
+</RelativeLayout>

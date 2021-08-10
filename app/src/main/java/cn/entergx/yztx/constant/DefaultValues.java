@@ -5,4 +5,5 @@ public class DefaultValues {
     //默认头像地址
     public final static String DEFAULT_AVATAR = DEFAULT_RESOURCE_SERVER + "?id=0&name=avatar.jpg";
     public static final String DEFAULT_COVER = DEFAULT_RESOURCE_SERVER + "?id=0&name=cover.jpg";
+
 }

@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/ic_logo" />
         <TextView
+            android:id="@+id/tv_welcome"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Loading..."
-            android:textSize="50sp" />
-    </FrameLayout>
-</LinearLayout>
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:text="与子同行智慧教育系统欢迎您"
+            android:textColor="#f391a9"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>
+

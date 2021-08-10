@@ -7,8 +7,18 @@ import android.util.DisplayMetrics
 import android.view.WindowManager
 import android.widget.EditText
 import android.widget.Toast
+import java.text.SimpleDateFormat
+import java.util.*
 
 object Utils {
+
+
+    fun transToString(time:Long):String{
+        return SimpleDateFormat("YYYY-MM-dd").format(Date(time*1000))
+    }
+    fun getYear(): String {
+        return SimpleDateFormat("YYYY").format(System.currentTimeMillis())
+    }
     // 根据手机的分辨率从 dp 的单位 转成为 px(像素)
     fun dip2px(context: Context, dpValue: Float): Int { // 获取当前手机的像素密度
         val scale = context.resources.displayMetrics.density
