@@ -2,11 +2,21 @@ package cn.entergx.yztx.utils
 
 import android.app.Activity
 import android.content.Context
+import android.graphics.Rect
 import android.text.InputFilter
 import android.util.DisplayMetrics
+import android.view.View
 import android.view.WindowManager
 import android.widget.EditText
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import cn.entergx.yztx.R
+import com.luck.picture.lib.PictureSelectionModel
+import com.luck.picture.lib.PictureSelector
+import com.luck.picture.lib.config.PictureConfig
+import com.luck.picture.lib.config.PictureMimeType
+import com.xuexiang.xui.widget.imageview.preview.PreviewBuilder
+import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -65,5 +75,40 @@ object Utils {
         }
         editText.filters = arrayOf(filter)
     }
+    //==========图片选择===========//
+
+    //==========图片选择===========//
+    /**
+     * 获取图片选择的配置
+     *
+     * @param fragment
+     * @return
+     */
+    fun getPictureSelector(fragment: Fragment?): PictureSelectionModel {
+        return PictureSelector.create(fragment)
+            .openGallery(PictureMimeType.ofImage())
+            .maxSelectNum(8)
+            .minSelectNum(1)
+            .selectionMode(PictureConfig.MULTIPLE)
+            .previewImage(true)
+            .isCamera(true)
+            .enableCrop(false)
+            .compress(true)
+            .previewEggs(true)
+    }
+
+    fun getPictureSelector(activity: Activity?): PictureSelectionModel {
+        return PictureSelector.create(activity)
+            .openGallery(PictureMimeType.ofImage())
+            .maxSelectNum(8)
+            .minSelectNum(1)
+            .selectionMode(PictureConfig.MULTIPLE)
+            .previewImage(true)
+            .isCamera(true)
+            .enableCrop(false)
+            .compress(true)
+            .previewEggs(true)
+    }
+
 
 }

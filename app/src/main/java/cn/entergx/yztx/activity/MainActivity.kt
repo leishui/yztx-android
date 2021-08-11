@@ -1,7 +1,8 @@
 package cn.entergx.yztx.activity
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
@@ -11,12 +12,39 @@ import cn.entergx.yztx.fragment.CommunityFragment
 import cn.entergx.yztx.fragment.LessonFragment
 import cn.entergx.yztx.fragment.MainFragment
 import cn.entergx.yztx.fragment.MineFragment
-import com.google.android.material.tabs.TabLayout
+import com.jpeng.jptabbar.JPTabBar
+import com.jpeng.jptabbar.anno.NorIcons
+import com.jpeng.jptabbar.anno.SeleIcons
+import com.jpeng.jptabbar.anno.Titles
+import com.xuexiang.xui.XUI
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainConstValue {
+
+    //==============需要注意的是，由于JPTabBar反射获取注解的是context，也就是容器Activity，因此需要将注解写在容器Activity内======================//
+    @Titles
+    val mTitles =
+        intArrayOf(R.string.tab1, R.string.tab2, R.string.tab3, R.string.tab4)
+
+    @SeleIcons
+    val mSelectIcons = intArrayOf(
+        R.drawable.ic_home_1,
+        R.drawable.ic_lesson_1,
+        //因为现在还没图标，所以先代替一下
+        R.drawable.ic_community_1,
+        R.drawable.ic_mine_1
+    )
+
+    @NorIcons
+    val mNormalIcons = intArrayOf(
+        R.drawable.ic_home,
+        R.drawable.ic_lesson,
+        //因为现在还没图标，所以先代替一下
+        R.drawable.ic_community,
+        R.drawable.ic_mine
+    )
     private lateinit var viewPager: ViewPager
-    private lateinit var tabLayout: TabLayout
+    private lateinit var tabLayout: JPTabBar
 
     //用于存放Fragment的，为了初始化ViewPager
     private val fragmentList = ArrayList<Fragment>()
@@ -61,54 +89,21 @@ class MainActivity : AppCompatActivity(), MainConstValue {
         }
         //默认显示的是第一个找团队界面
         viewPager.currentItem = 0
-        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrollStateChanged(state: Int) {}
-
-            override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
-            ) {
-            }
-
-            override fun onPageSelected(position: Int) {
-                //改变TabLayout图标
-                tabLayout.getTabAt(position)?.select()
-            }
-        })
     }
 
     //初始化TabLayout的内容
     private fun initTabLayout() {
-        //为TabLayout添加内容
-        for (i: Int in tabText.indices) {
-            if (i == 0) {
-                tabLayout.addTab(
-                    tabLayout.newTab().setText(tabText[0]).setIcon(tabSelectedDrawableIdList[0])
-                )
-            } else {
-                tabLayout.addTab(
-                    tabLayout.newTab().setText(tabText[i]).setIcon(tabUnselectedDrawableList[i])
-                )
-            }
+        //页面可以滑动
+        tabLayout.setGradientEnable(true)
+        tabLayout.setPageAnimateEnable(true)
+        tabLayout.setTabTypeFace(XUI.getDefaultTypeface())
+        tabLayout.setContainer(viewPager)
+        if (tabLayout.middleView != null) {
+            tabLayout.middleView
+                .setOnClickListener {
+                    startActivity(Intent(this,WritePostActivity::class.java))
+                }
         }
-        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabReselected(tab: TabLayout.Tab?) {}
-
-            //设置未选中图标
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-                tab?.apply {
-                    setIcon(tabUnselectedDrawableList[position])
-                }
-            }
-
-            //设置选中图标
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                tab?.apply {
-                    setIcon(tabSelectedDrawableIdList[position])
-                    viewPager.currentItem = position
-                }
-            }
-        })
+        //tabLayout.showBadge(2, "", true)
     }
 }

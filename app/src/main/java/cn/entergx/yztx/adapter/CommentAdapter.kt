@@ -13,6 +13,7 @@ import cn.entergx.yztx.bean.bean.Comment
 import cn.entergx.yztx.utils.Utils
 import com.bumptech.glide.Glide
 import com.rishabhharit.roundedimageview.RoundedImageView
+import com.xuexiang.xui.widget.textview.ExpandableTextView
 
 
 class CommentAdapter(private val mContext: Context, private val comments: ArrayList<Comment>) :
@@ -28,7 +29,8 @@ class CommentAdapter(private val mContext: Context, private val comments: ArrayL
         val riAvatar: RoundedImageView? = itemView.findViewById(R.id.ri_avatar_comment)
         val tvUpName: TextView? = itemView.findViewById(R.id.tv_up_name_comment)
         val tvTime: TextView? = itemView.findViewById(R.id.tv_up_time_comment)
-        val tvContent: TextView? = itemView.findViewById(R.id.tv_comment_content)
+        //val tvContent: TextView? = itemView.findViewById(R.id.tv_comment_content)
+        val tvContent: ExpandableTextView? = itemView.findViewById(R.id.expand_text_view)
         val v: View? = itemView.findViewById(R.id.v_item_comment)
     }
 

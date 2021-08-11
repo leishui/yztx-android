@@ -151,4 +151,8 @@
     <string name="tag_edit">编辑</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab1">主页</string>
+    <string name="tab2">课程</string>
+    <string name="tab3">社区</string>
+    <string name="tab4">我的</string>
 </resources>

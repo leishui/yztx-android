@@ -4,8 +4,16 @@
     package="cn.entergx.yztx">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!-- SD卡读取权限，用户写入离线定位数据-->
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
 
     <application
+        android:requestLegacyExternalStorage="true"
         android:name=".utils.ContextTool"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,7 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:targetApi="n">
+        tools:targetApi="q">
         <activity android:name=".activity.WritePostActivity"></activity>
         <activity android:name=".activity.BabyActivity" />
         <activity android:name=".activity.YunZhongActivity" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,37 +7,19 @@
     tools:context=".activity.MainActivity"
     android:background="#ccc">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="246dp"
-        app:layout_constraintTop_toTopOf="parent"
-
-        android:scaleType="centerCrop"/>
-
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp_main"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/tb_layout_main"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tb_layout_main"/>
 
-    <com.google.android.material.tabs.TabLayout
+    <com.jpeng.jptabbar.JPTabBar
         android:id="@+id/tb_layout_main"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:tabIndicatorHeight="0dp"
-        app:tabPaddingStart="8dp"
-        app:tabPaddingEnd="8dp"
-        app:tabBackground="@android:color/transparent"
-        app:tabRippleColor="@android:color/transparent"
-        app:tabSelectedTextColor="@color/pink"
-        app:tabTextColor="#2c2c2c"
-        android:background="#FFFFFF"
-        android:elevation="10dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#F9F9F9"
+        android:layout_alignParentBottom="true"
+        app:tab_animate="Scale"
+        app:tab_middleView="@layout/layout_middle_tab" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

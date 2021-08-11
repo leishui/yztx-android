@@ -1,9 +1,10 @@
 package cn.entergx.yztx.bean.bean;
 
 public class Post  {
-    public long post_id;
+    public long postId;
     public String post_name;
     public String post_content;
+    public String post_resources;
     public long uploader_id;
     public boolean source_type;
     public long view_count;
@@ -12,4 +13,5 @@ public class Post  {
     public long like_count;
     public long upload_time;
     public long post_type;
+    public User user;
 }
