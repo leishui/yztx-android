@@ -1,23 +1,20 @@
 package cn.entergx.yztx.activity
 
 import android.content.Context
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
-import androidx.core.view.get
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import cn.entergx.yztx.R
 import cn.entergx.yztx.adapter.delegate.SimpleDelegateAdapter
 import cn.entergx.yztx.adapter.delegate.SingleDelegateAdapter
 import cn.entergx.yztx.bean.bean.Comment
-import cn.entergx.yztx.bean.bean.Lesson
 import cn.entergx.yztx.bean.bean.Post
 import cn.entergx.yztx.constant.ResourceType
 import cn.entergx.yztx.constant.StatusType
-import cn.entergx.yztx.msg.LessonMsg
 import cn.entergx.yztx.msg.PageMsg
 import cn.entergx.yztx.msg.SimpleMsg
 import cn.entergx.yztx.network.Repo
@@ -27,6 +24,8 @@ import com.alibaba.android.vlayout.DelegateAdapter
 import com.alibaba.android.vlayout.VirtualLayoutManager
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.SimpleTarget
+import com.bumptech.glide.request.transition.Transition
 import com.luck.picture.lib.tools.ScreenUtils
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.xuexiang.xui.adapter.recyclerview.RecyclerViewHolder
@@ -120,9 +119,23 @@ class PostActivity : AppCompatActivity() {
                             )
                         iv.layoutParams = layoutParams
                         iv.setPadding(5, 5, 5, 5)
-                        //iv.scaleType = ImageView.ScaleType.CENTER_CROP
-                        Glide.with(this@PostActivity).load(s).placeholder(R.drawable.ic_gank)
-                            .error(R.drawable.ic_error).into(iv)
+                        iv.scaleType = ImageView.ScaleType.CENTER_CROP
+                        Glide.with(this@PostActivity).asBitmap().load(s)
+                            .placeholder(R.drawable.ic_gank)
+                            .error(R.drawable.ic_error).into(object :
+                                SimpleTarget<Bitmap>() {
+                                override fun onResourceReady(
+                                    resource: Bitmap,
+                                    transition: Transition<in Bitmap>?
+                                ) {
+                                    val width: Int = resource.width
+                                    val height: Int = resource.height
+                                    layoutParams.height =
+                                        Utils.getScreenWidth(this@PostActivity) * height / width
+                                    iv.layoutParams = layoutParams
+                                    iv.setImageBitmap(resource)
+                                }
+                            })
                         //holder.image(i,s)
                         linearLayout.addView(iv)
                     }
