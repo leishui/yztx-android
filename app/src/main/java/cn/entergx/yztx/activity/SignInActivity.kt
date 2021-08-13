@@ -127,7 +127,10 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
                 else
                     Utils.toast(this, "请将信息填写完整")
             }
-            tvLogin.id -> finish()
+            tvLogin.id -> {
+                startActivity(Intent(this,LoginActivity::class.java))
+                finish()
+            }
             ibClose.id -> finish()
             btGetCode.id -> {
                 if (etPhone.text.length != 11)

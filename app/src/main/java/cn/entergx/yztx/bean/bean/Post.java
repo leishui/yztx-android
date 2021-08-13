@@ -1,6 +1,9 @@
 package cn.entergx.yztx.bean.bean;
 
-public class Post  {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Post implements Serializable {
     public long postId;
     public String post_name;
     public String post_content;
@@ -14,4 +17,5 @@ public class Post  {
     public long upload_time;
     public long post_type;
     public User user;
+    public ArrayList<String> postResourcesList;
 }

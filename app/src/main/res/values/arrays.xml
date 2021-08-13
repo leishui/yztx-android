@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="grid_titles_entry">
+        <item>美食</item>
+        <item>甜点</item>
+        <item>烧烤</item>
+        <item>夜宵</item>
+        <item>水果</item>
+        <item>药品</item>
+        <item>蔬菜</item>
+        <item>跑腿</item>
+    </string-array>
+
+    <!--  修改这里的图标  -->
+    <array name="grid_icons_entry">
+        <item>@color/pink</item>
+        <item>@color/black_80</item>
+        <item>@color/blue</item>
+        <item>@color/yellow</item>
+        <item>@color/green</item>
+        <item>@color/orange</item>
+        <item>@color/red</item>
+        <item>@color/gray</item>
+    </array>
+</resources>

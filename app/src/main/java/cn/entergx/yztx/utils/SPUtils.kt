@@ -21,6 +21,7 @@ object SPUtils {
     fun saveIsLogin(isLogin: Boolean) {
         userEditor.putBoolean("isLogin", isLogin)
         userEditor.apply()
+        saveIsPicker(true)
     }
 
     fun getIsLogin(): Boolean {

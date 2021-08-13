@@ -17,8 +17,8 @@ import cn.entergx.yztx.adapter.VideoPageAdapter
 import cn.entergx.yztx.bean.bean.Lesson
 import cn.entergx.yztx.constant.ResourceType
 import cn.entergx.yztx.constant.StatusType
-import cn.entergx.yztx.fragment.video.CommentFragment
 import cn.entergx.yztx.fragment.video.IntroFragment
+import cn.entergx.yztx.fragment.video.CommentFragmentVLayout
 import cn.entergx.yztx.msg.SimpleMsg
 import cn.entergx.yztx.network.Repo
 import cn.entergx.yztx.utils.SPUtils
@@ -39,7 +39,6 @@ import com.shuyu.gsyvideoplayer.utils.Debuger
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils
 import com.shuyu.gsyvideoplayer.video.base.GSYVideoPlayer
 import kotlinx.android.synthetic.main.content_scrolling.*
-import kotlinx.android.synthetic.main.fragment_comment.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -63,6 +62,7 @@ class NormalVideoActivity : AppCompatActivity() {
     private var isComment = false
     private var popupWindow: PopupWindow? = null
     private var popComment: PopupWindow? = null
+    private lateinit var commentFragmentVLayout:CommentFragmentVLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         review = LayoutInflater.from(this).inflate(
@@ -270,10 +270,11 @@ class NormalVideoActivity : AppCompatActivity() {
     }
 
     private fun initContent() {
+        commentFragmentVLayout = CommentFragmentVLayout(
+            lesson.lessonId
+        )
         adapter = VideoPageAdapter(
-            this, supportFragmentManager, IntroFragment(lesson), CommentFragment(
-                this, lesson.lessonId
-            )
+            this, supportFragmentManager, IntroFragment(lesson), commentFragmentVLayout
         )
         initPopComment()
         initPopOpen()
@@ -312,7 +313,7 @@ class NormalVideoActivity : AppCompatActivity() {
             override fun onResponse(call: Call<SimpleMsg>, response: Response<SimpleMsg>) {
                 if (response.body()?.status == StatusType.SUCCESSFUL) {
                     Utils.toast(this@NormalVideoActivity, "发送成功")
-                    CommentFragment.initData(comment_id, this@NormalVideoActivity, rv_comment)
+                    commentFragmentVLayout.initData(0)
                     return
                 }
                 Utils.toast(this@NormalVideoActivity, "发送失败：" + response.body()?.msg)

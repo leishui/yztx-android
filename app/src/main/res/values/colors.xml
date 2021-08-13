@@ -18,6 +18,7 @@
     <color name="gray_20">#B3B3B3</color>
     <color name="gray_80">#BEBBB4</color>
     <color name="gray_light_30">#E5E5E5</color>
+    <color name="black">#000</color>
     <color name="black_80">#222222</color>
     <color name="black_alpha_45">#71000000</color>
     <color name="black_alpha_30">#48000000</color>

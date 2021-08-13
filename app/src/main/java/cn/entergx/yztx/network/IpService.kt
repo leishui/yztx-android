@@ -89,5 +89,5 @@ interface IpService {
         @Query("post_type") type: Long
     ): Call<SimpleMsg>
     @GET("post/get")
-    fun getPostsByPage(page: Int,size: Int):Call<Msg<Post>>
+    fun getPostsByPage(@Query("page")page: Int,@Query("size")size: Int):Call<Msg<SpringPage<Post>>>
 }

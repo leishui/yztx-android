@@ -4,6 +4,7 @@ import cn.entergx.yztx.bean.bean.Comment
 import cn.entergx.yztx.bean.bean.LessonSet
 import cn.entergx.yztx.bean.bean.Post
 import cn.entergx.yztx.bean.bean.User
+import cn.entergx.yztx.bean.page.SpringPage
 import cn.entergx.yztx.msg.LessonMsg
 import cn.entergx.yztx.msg.Msg
 import cn.entergx.yztx.msg.PageMsg
@@ -64,9 +65,15 @@ object Repo {
     fun getLesson(callback: Callback<LessonMsg>) {
         ipService.getLesson(0, 14).enqueue(callback)
     }
+    fun getLessonByPage(page: Int,size: Int,callback: Callback<LessonMsg>) {
+        ipService.getLesson(page, size).enqueue(callback)
+    }
 
     fun getLessonSet(callback: Callback<PageMsg<LessonSet>>) {
         ipService.getLessonSet(0, 14).enqueue(callback)
+    }
+    fun getLessonSetByPage(page: Int,size: Int,callback: Callback<PageMsg<LessonSet>>) {
+        ipService.getLessonSet(page, size).enqueue(callback)
     }
 
     fun getCommentsAndReplies(
@@ -107,7 +114,7 @@ object Repo {
     ) {
         ipService.uploadPost(name, content, resources, upId, sourceType, type).enqueue(callback)
     }
-    fun getPostsByPage(page: Int,size: Int,callback: Callback<Msg<Post>>){
+    fun getPostsByPage(page: Int,size: Int,callback: Callback<Msg<SpringPage<Post>>>){
         ipService.getPostsByPage(page, size).enqueue(callback)
     }
 }

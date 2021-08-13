@@ -8,10 +8,8 @@ import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import cn.entergx.yztx.R
 import cn.entergx.yztx.constant.MainConstValue
-import cn.entergx.yztx.fragment.CommunityFragment
-import cn.entergx.yztx.fragment.LessonFragment
-import cn.entergx.yztx.fragment.MainFragment
-import cn.entergx.yztx.fragment.MineFragment
+import cn.entergx.yztx.fragment.*
+import cn.entergx.yztx.fragment.MainFragmentVLayout
 import com.jpeng.jptabbar.JPTabBar
 import com.jpeng.jptabbar.anno.NorIcons
 import com.jpeng.jptabbar.anno.SeleIcons
@@ -68,11 +66,11 @@ class MainActivity : AppCompatActivity(), MainConstValue {
     private fun initViewPager() {
         //往fragmentList里添加各个Fragment，下方顺序不能乱
         //添加主Fragment
-        fragmentList.add(MainFragment())
+        fragmentList.add(MainFragmentVLayout())
         //添加课程Fragment
-        fragmentList.add(LessonFragment())
+        fragmentList.add(LessonFragmentVLayout())
         //添加社区Fragment
-        fragmentList.add(CommunityFragment())
+        fragmentList.add(CommunityFragmentVLayout())
         //添加我的Fragment
         fragmentList.add(MineFragment())
         viewPager.adapter = object : FragmentPagerAdapter(

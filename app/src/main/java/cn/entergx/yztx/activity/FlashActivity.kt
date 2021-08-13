@@ -19,15 +19,16 @@ class FlashActivity : AppCompatActivity() {
     private fun init() {
         thread(start = true) {
             //Thread.sleep(2000)
-            if (SPUtils.getIsPicker())
+            if (!SPUtils.getIsPicker())
                 startActivity(
                     Intent(
                         this,
-                        MainActivity::class.java
+                        ChooseActivity::class.java
                     )
                 )
-            else
-                startActivity(Intent(this, ChooseActivity::class.java))
+            else if (!SPUtils.getIsLogin())
+                startActivity(Intent(this, LoginActivity::class.java))
+            else startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
     }

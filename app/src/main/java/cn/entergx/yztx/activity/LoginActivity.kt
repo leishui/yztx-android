@@ -54,7 +54,7 @@ class LoginActivity : AppCompatActivity() {
                         etPassword.text.toString(), object : MyCallback<Msg<User>> {
                             override fun onFailure(call: Call<Msg<User>>, t: Throwable) {
                                 super.onFailure(call, t)
-                                Utils.toast(this@LoginActivity,"登录失败")
+                                Utils.toast(this@LoginActivity, "登录失败")
                                 alertDialog.dismiss()
                             }
 
@@ -62,15 +62,23 @@ class LoginActivity : AppCompatActivity() {
                                 call: Call<Msg<User>>,
                                 response: Response<Msg<User>>
                             ) {
-                                Log.d("TAG", "onResponse: "+response.body()?.msg.toString())
+                                Log.d("TAG", "onResponse: " + response.body()?.msg.toString())
                                 if (response.body()?.status == StatusType.SUCCESSFUL) {
-                                    Utils.toast(this@LoginActivity,"登录成功")
+                                    Utils.toast(this@LoginActivity, "登录成功")
                                     SPUtils.saveIsLogin(true)
                                     SPUtils.saveUser(response.body()!!.content)
-                                    startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+                                    startActivity(
+                                        Intent(
+                                            this@LoginActivity,
+                                            MainActivity::class.java
+                                        )
+                                    )
                                     finish()
-                                }else{
-                                    Utils.toast(this@LoginActivity,"登录失败："+response.body()?.msg.toString())
+                                } else {
+                                    Utils.toast(
+                                        this@LoginActivity,
+                                        "登录失败：" + response.body()?.msg.toString()
+                                    )
                                 }
                                 alertDialog.dismiss()
                             }
@@ -87,7 +95,10 @@ class LoginActivity : AppCompatActivity() {
                 )
             )
         }
-        tvRegister.setOnClickListener { startActivity(Intent(this, SignInActivity::class.java)) }
+        tvRegister.setOnClickListener {
+            startActivity(Intent(this, SignInActivity::class.java))
+            finish()
+        }
         ibClose.setOnClickListener { finish() }
     }
 

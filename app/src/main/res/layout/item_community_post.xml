@@ -46,22 +46,33 @@
             android:padding="5dp"
             android:textColor="@color/black"
             android:textSize="20sp"/>
+        <LinearLayout
+            android:id="@+id/l_post_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        </LinearLayout>
         <TextView
             android:id="@+id/tv_community_post_des"
             android:background="@color/pink"
             android:textColor="@color/white"
-            android:text="xxxxxxxxxxxx"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:text="xxxxxxxxxxxxxx"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:padding="5dp">
+            android:layout_height="45dp"
+            android:padding="10dp">
             <TextView
                 android:id="@+id/tv_community_post_type_count"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="XX•XX阅读"
+                android:textSize="20sp"
                 android:gravity="center_vertical"/>
             <LinearLayout
                 android:layout_alignParentEnd="true"
@@ -71,23 +82,47 @@
                 <ImageView
                     android:id="@+id/iv_community_comment"
                     android:src="@drawable/ic_comment"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"/>
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:text="12"/>
-                <ImageView
+                    android:text="12"
+                    android:layout_marginStart="5dp"
+                    android:textSize="20sp"/>
+<!--                <ImageView-->
+<!--                    android:id="@+id/iv_community_zan"-->
+<!--                    android:layout_marginStart="20dp"-->
+<!--                    android:src="@drawable/ic_zan"-->
+<!--                    android:layout_width="20dp"-->
+<!--                    android:layout_height="20dp"/>-->
+                <com.xuexiang.xui.widget.button.shinebutton.ShineButton
                     android:id="@+id/iv_community_zan"
-                    android:layout_marginStart="20dp"
-                    android:src="@drawable/ic_zan"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"/>
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:src="@android:color/darker_gray"
+                    android:layout_marginStart="5dp"
+                    app:sb_allow_random_color="false"
+                    app:sb_big_shine_color="#FF6666"
+                    app:sb_checked_color="#FF6666"
+                    app:sb_click_animation_duration="200"
+                    app:sb_enable_flashing="false"
+                    app:sb_icon_image="@drawable/ic_like"
+                    app:sb_normal_color="@color/gray"
+                    app:sb_shine_animation_duration="1500"
+                    app:sb_shine_count="15"
+                    app:sb_shine_distance_multiple="1.5"
+                    app:sb_shine_turn_angle="10"
+                    app:sb_small_shine_color="#CC9999"
+                    app:sb_small_shine_offset_angle="20" />
                 <TextView
+                    android:layout_marginStart="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
+                    android:textSize="20sp"
                     android:text="12"/>
             </LinearLayout>
         </RelativeLayout>
