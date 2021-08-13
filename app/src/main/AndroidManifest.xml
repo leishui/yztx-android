@@ -9,6 +9,7 @@
     <uses-permission
         android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
         tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:name=".utils.ContextTool"
@@ -22,7 +23,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="q">
-        <activity android:name=".activity.PostActivity"></activity>
+        <activity android:name=".activity.PostActivity" />
+        <activity android:name=".activity.DisplayActivity" />
         <activity android:name=".activity.WritePostActivity" />
         <activity android:name=".activity.BabyActivity" />
         <activity android:name=".activity.YunZhongActivity" />

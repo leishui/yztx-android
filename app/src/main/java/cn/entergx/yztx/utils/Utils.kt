@@ -35,25 +35,25 @@ object Utils {
         "碟中谍4:阿汤哥高塔命悬一线,超越不可能"
     )
     private var urls_main = arrayOf(
-        "https://yztx.entergx.cn/resource/get?id=0&name=lbt11",
-        "https://yztx.entergx.cn/resource/get?id=0&name=lbt12",
-        "https://yztx.entergx.cn/resource/get?id=0&name=lbt13",
-        "https://yztx.entergx.cn/resource/get?id=0&name=lbt14",
-        "https://yztx.entergx.cn/resource/get?id=0&name=lbt15"
+        "https://yztx.entergx.cn/resource/get?id=0&name=lbt11.png",
+        "https://yztx.entergx.cn/resource/get?id=0&name=lbt12.png",
+        "https://yztx.entergx.cn/resource/get?id=0&name=lbt13.png",
+        "https://yztx.entergx.cn/resource/get?id=0&name=lbt14.png",
+        "https://yztx.entergx.cn/resource/get?id=0&name=lbt15.png"
     )
     private var urls_lesson = arrayOf(
-        "https://yztx.entergx.cn/resource/get?id=0&name=lbt21",
-        "https://yztx.entergx.cn/resource/get?id=0&name=lbt22",
-        "https://yztx.entergx.cn/resource/get?id=0&name=lbt23",
-        "https://yztx.entergx.cn/resource/get?id=0&name=lbt24",
-        "https://yztx.entergx.cn/resource/get?id=0&name=lbt25"
+        "https://yztx.entergx.cn/resource/get?id=0&name=lbt21.png",
+        "https://yztx.entergx.cn/resource/get?id=0&name=lbt22.png",
+        "https://yztx.entergx.cn/resource/get?id=0&name=lbt23.png",
+        "https://yztx.entergx.cn/resource/get?id=0&name=lbt24.png",
+        "https://yztx.entergx.cn/resource/get?id=0&name=lbt25.png"
     )
     private var urls_post = arrayOf(
-        "https://yztx.entergx.cn/resource/get?id=0&name=lbt31",
-        "https://yztx.entergx.cn/resource/get?id=0&name=lbt32",
-        "https://yztx.entergx.cn/resource/get?id=0&name=lbt33",
-        "https://yztx.entergx.cn/resource/get?id=0&name=lbt34",
-        "https://yztx.entergx.cn/resource/get?id=0&name=lbt35"
+        "https://yztx.entergx.cn/resource/get?id=0&name=lbt31.png",
+        "https://yztx.entergx.cn/resource/get?id=0&name=lbt32.png",
+        "https://yztx.entergx.cn/resource/get?id=0&name=lbt33.png",
+        "https://yztx.entergx.cn/resource/get?id=0&name=lbt34.png",
+        "https://yztx.entergx.cn/resource/get?id=0&name=lbt35.png"
     )
 
     fun getBannerListMain(): List<BannerItem>? {

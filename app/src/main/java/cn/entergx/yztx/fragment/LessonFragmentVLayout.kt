@@ -51,6 +51,7 @@ class LessonFragmentVLayout:MainFragmentVLayout() {
                         if (response.body()!!.content.empty) {
                             this@LessonFragmentVLayout.page -= 1
                             Utils.toast("已全部加载")
+                            refreshLayout.finishLoadMoreWithNoMoreData()
                         } else mNewsAdapter.loadMore(response.body()!!.content.content)
                     }
                 } else {

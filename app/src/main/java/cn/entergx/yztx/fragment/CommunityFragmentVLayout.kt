@@ -129,9 +129,6 @@ class CommunityFragmentVLayout : Fragment() {
                 linearLayout.removeAllViews()
                 if (postResourcesList != null) {
                     var i = 0
-                    if (mData[position].postId == 14L) {
-                        println()
-                    }
                     for (s in postResourcesList) {
                         if (i == 3)
                             break

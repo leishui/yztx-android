@@ -25,6 +25,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.RecycledViewPool
 import cn.entergx.yztx.R
+import cn.entergx.yztx.activity.DisplayActivity
 import cn.entergx.yztx.activity.NormalVideoActivity
 import cn.entergx.yztx.adapter.delegate.SimpleDelegateAdapter
 import cn.entergx.yztx.adapter.delegate.SingleDelegateAdapter
@@ -114,6 +115,17 @@ open class MainFragmentVLayout : Fragment() {
         gridLayoutHelper.setPadding(0, 16, 0, 0)
         gridLayoutHelper.vGap = 10
         gridLayoutHelper.hGap = 0
+        val server = "http://entergx.cn/"
+        val urls = arrayOf(
+            server + "phb.html",
+            server + "baomariji.html",
+            server + "fayulichengbei.html",
+            server + "yunyuzhoukan.html",
+            server + "nbnc.html",
+            server + "nbnz.html",
+            server + "bbpy.html",
+            server + "qtgj.html"
+        )
         val commonAdapter: SimpleDelegateAdapter<AdapterItem> = object :
             SimpleDelegateAdapter<AdapterItem>(
                 R.layout.adapter_common_grid_item,
@@ -136,7 +148,10 @@ open class MainFragmentVLayout : Fragment() {
                     holder.click(
                         R.id.ll_container
                     ) { v: View? ->
-                        Utils.toast("点击了：" + item.title)
+                        startActivity(Intent(requireContext(), DisplayActivity::class.java).also {
+                            it.putExtra("title", item.title)
+                            it.putExtra("url", urls[position])
+                        })
                     }
                 }
             }

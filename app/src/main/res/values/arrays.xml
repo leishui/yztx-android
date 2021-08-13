@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="grid_titles_entry">
-        <item>美食</item>
-        <item>甜点</item>
-        <item>烧烤</item>
-        <item>夜宵</item>
-        <item>水果</item>
-        <item>药品</item>
-        <item>蔬菜</item>
-        <item>跑腿</item>
+        <item>排行</item>
+        <item>宝妈日记</item>
+        <item>里程碑</item>
+        <item>孕育周刊</item>
+        <item>能不能吃</item>
+        <item>能不能做</item>
+        <item>宝宝培育</item>
+        <item>其他工具</item>
     </string-array>
 
     <!--  修改这里的图标  -->
