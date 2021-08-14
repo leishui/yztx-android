@@ -28,7 +28,6 @@
         android:layout_height="?actionBarSize">
 
         <ImageButton
-            android:id="@+id/ib_post_back"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
@@ -46,7 +45,6 @@
             android:textColor="@color/white"
             android:textSize="20sp" />
         <ImageButton
-            android:id="@+id/ib_post_more"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"

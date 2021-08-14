@@ -40,7 +40,6 @@
                     android:src="@drawable/ic_video"
                     android:alpha="1"/>
                 <TextView
-                    android:id="@+id/tv_view_count_main_1"
                     android:layout_toEndOf="@id/iv_video_count"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
@@ -48,7 +47,6 @@
                     android:textColor="@color/pink"
                     android:text="11.1万"/>
                 <TextView
-                    android:id="@+id/tv_length_main_1"
                     android:layout_alignParentEnd="true"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
@@ -108,7 +106,6 @@
                     android:padding="5dp"
                     android:alpha="1"/>
                 <TextView
-                    android:id="@+id/tv_view_count_main_2"
                     android:layout_toEndOf="@id/iv_video_count_2"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
@@ -116,7 +113,6 @@
                     android:textColor="@color/pink"
                     android:text="11.1万"/>
                 <TextView
-                    android:id="@+id/tv_length_main_2"
                     android:layout_alignParentEnd="true"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"

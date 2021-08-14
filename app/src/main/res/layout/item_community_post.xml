@@ -68,7 +68,6 @@
             android:layout_height="45dp"
             android:padding="10dp">
             <TextView
-                android:id="@+id/tv_community_post_type_count"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="XX•XX阅读"
@@ -80,7 +79,6 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <ImageView
-                    android:id="@+id/iv_community_comment"
                     android:src="@drawable/ic_comment"
                     android:layout_width="25dp"
                     android:layout_height="25dp"/>
@@ -98,7 +96,6 @@
 <!--                    android:layout_width="20dp"-->
 <!--                    android:layout_height="20dp"/>-->
                 <com.xuexiang.xui.widget.button.shinebutton.ShineButton
-                    android:id="@+id/iv_community_zan"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_gravity="center"
