@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import cn.entergx.yztx.R
 import cn.entergx.yztx.bean.bean.User
 import cn.entergx.yztx.constant.StatusType
@@ -73,7 +74,7 @@ class LoginActivity : AppCompatActivity() {
                                             MainActivity::class.java
                                         )
                                     )
-                                    finish()
+                                    ActivityCompat.finishAffinity(this@LoginActivity)
                                 } else {
                                     Utils.toast(
                                         this@LoginActivity,
