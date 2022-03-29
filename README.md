@@ -1,4 +1,7 @@
-**需要额外添加ijkplayer的库，手动编译或找编译好的，默认的不支持https播放**
+## 对应Java后端：
+<https://github.com/leishui/yztx-android/>
+
+**运行源码需要额外添加ijkplayer的库，手动编译或找编译好的，默认的不支持https播放**
 1.	封装调试及使用BiliBili开源的ijkplayer进行视频的播放相关。
 2.	使用Retrofit库进行网络请求，调用后台API。
 3.	使用Gson库对后台返回数据进行解析。
