@@ -13,3 +13,17 @@
 9.	使用了xuexiangjys:XUI库中的部分控件。
 10.	自定义CircleView实现圆形图片展示。
 11.	自定义BannerView实现轮播图控件。
+
+### 一些界面展示
+![](https://raw.githubusercontent.com/leishui/SomePhotos/main/Screenshot_20220316-114923.jpg)
+![](https://raw.githubusercontent.com/leishui/SomePhotos/main/Screenshot_20220316-114928.jpg)
+![](https://raw.githubusercontent.com/leishui/SomePhotos/main/Screenshot_20220316-114932.jpg)
+![](https://raw.githubusercontent.com/leishui/SomePhotos/main/Screenshot_20220316-114936.jpg)
+![](https://raw.githubusercontent.com/leishui/SomePhotos/main/Screenshot_20220316-114940.jpg)
+![](https://raw.githubusercontent.com/leishui/SomePhotos/main/Screenshot_20220316-114951.jpg)
+![](https://raw.githubusercontent.com/leishui/SomePhotos/main/Screenshot_20220316-114955.jpg)
+![](https://raw.githubusercontent.com/leishui/SomePhotos/main/Screenshot_20220316-115010.jpg)
+![](https://raw.githubusercontent.com/leishui/SomePhotos/main/Screenshot_20220316-115015.jpg)
+![](https://raw.githubusercontent.com/leishui/SomePhotos/main/Screenshot_20220316-115026.jpg)
+![](https://raw.githubusercontent.com/leishui/SomePhotos/main/Screenshot_20220316-115034.jpg)
+![](https://raw.githubusercontent.com/leishui/SomePhotos/main/Screenshot_20220316-115043.jpg)
